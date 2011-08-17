@@ -1,0 +1,146 @@
+
+<html>
+   <head>   
+
+
+<script src="js/processing-1.0.0.min.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/trontastic/jquery-ui.css" rel="stylesheet" type="text/css">
+
+<script src="js/jquery-ui.min.js"></script>
+
+	
+<style>
+body{
+background-color:black;
+color:#ccc;
+font-family:"Courier new";
+width: 800;
+margin : 40; 
+}
+#contact{font-size:0.875em;}
+
+#curtain{ display:none;}
+
+#accordion{ width: 330px}
+
+
+
+.monitor{  
+   background-color: transparent; 
+   width: 10px; 
+   height: 10px;
+   margin: 10px; 
+}
+
+</style>
+
+<script src="js/main.js"></script>
+
+</head>
+
+<body>
+<img id="loading" src="img/loading.gif" />
+
+
+<div id="curtain">
+<p>
+<h1>&nbsp&nbsp 2D LIQUID CRYSTAL</h1>
+
+
+<table cellpadding="10"><tr>
+
+<!--PROCESSING CANVAS -->
+<td> 
+<canvas id="pde" data-processing-sources="pjs/pjs.pde pjs/RodCanvas.pde pjs/Rod.pde pjs/Button.pde pjs/AnchoringSurface.pde pjs/NematicSimulation.pde" ></canvas>  
+</td>
+
+<!--CONTROL PANEL -->
+<td>
+
+<div id="accordion">
+
+   <!--SIMULATION ENGINE TAB -->
+  <h3><a href="#">Simulation engine</a></h3>
+   <div>
+   <table>
+    <tr>
+    
+      <!--Particle interaction on/off -->
+      <td>
+       <div class="monitor" id="interaction_monitor"></div>
+      </td>
+
+      <td>
+       <button id="interaction" onclick="interactionToggle()"> </button>
+      </td>
+
+      <td> 
+       <font color="white"> Particle interaction</color>
+      </td>
+     </tr>
+  
+  <!-- Thermal Noise on/off -->
+    
+     <tr>
+      <td>
+       <div class="monitor" id="noise_monitor"></div>
+      </td>
+    
+      <td>
+       <button id="noise" onclick="noiseToggle()"></button>
+      </td>
+
+      <td> 
+       <font color="white"> Thermal noise</font>
+      </td>
+     </tr>
+
+  </table>
+ </div>
+
+     <!--ANCHORING TAB  -->
+	<h3><a href="#">Edge Anchoring</a></h3>
+
+  <div>
+   <table class="controls" >
+    <tr>
+       <td colspan="2" align="center">
+         <button class="anchoring_btn" id="top" onClick="anchoringBtnPressed('top')">parallel</button>
+       </td>        
+    </tr>
+    <tr>
+      <td align="center"> 
+        <button  class="anchoring_btn" id="left" onClick="anchoringBtnPressed('left')">none</button>
+      </td>   
+      <td align="center">
+        <button  class="anchoring_btn" id="right" onClick="anchoringBtnPressed('right')"  >none</button>
+      </td>
+    </tr>
+    <tr>
+       <td  align="center" colspan="2">
+          <button class="anchoring_btn" id="bottom" onClick="anchoringBtnPressed('bott')" >none</button>
+       </td>
+     </tr>
+   </table>
+  </div>
+</div>
+<!--END OF CONTROL PANEL -->
+
+</td></tr></table>
+
+
+<p>
+Drag the mouse to create, move and orient liquid-crystal forming mesogens
+<p>
+
+Use the console to set orientational boundary conditions ('anchoring')
+<p>
+<p><br/>
+<div id="contact">  
+(c) Nick Braun 2010
+</div>
+  </body>
+</div>
+</html>
